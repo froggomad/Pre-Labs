@@ -4,5 +4,6 @@
         <page name='Data Model'/>
         <page name='NetworkLoader'/>
         <page name='String + Validate'/>
+        <page name='UIColor + namedColors'/>
     </pages>
 </playground>

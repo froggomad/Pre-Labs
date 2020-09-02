@@ -22,15 +22,20 @@ extension UIView {
     ///   - translatesAutoresizingMaskIntoConstraints: default false
     ///   - cornerRadius: default 8
     ///   - backgroundColor: default .action (for visibility)
+    ///   - size: sets the UIView to the specified size (square)
     convenience init(translatesAutoresizingMaskIntoConstraints: Bool = false,
                      cornerRadius: CGFloat = .cornerRadius,
                      backgroundColor: UIColor = .action,
-                     size: ViewSize = .medium) {
+                     size: ViewSize? = nil) {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        //appearance
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = cornerRadius
-        setDimensions(width: size.rawValue, height: size.rawValue)
+        //size
+        if let size = size {
+            setDimensions(width: size.rawValue, height: size.rawValue)
+        }
     }
 
     /// Note: Left and right refer to left/right of screen or control.

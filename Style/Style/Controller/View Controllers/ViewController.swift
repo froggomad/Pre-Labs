@@ -16,7 +16,7 @@ class ViewController: DefaultViewController {
     }
 
     private func setupRoundedAutolayoutView() {
-        let autoView = UIView(backgroundColor: .action)
+        let autoView = UIView(backgroundColor: .blue, size: .large)
 
         view.addSubview(autoView)
         autoView.anchor(top: view.topAnchor,

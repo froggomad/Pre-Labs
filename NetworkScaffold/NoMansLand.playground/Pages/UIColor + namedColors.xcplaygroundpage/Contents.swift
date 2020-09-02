@@ -14,8 +14,8 @@ extension UIColor {
         //etc
     }
 
-    func getColor(_ named: ThemeColorName) -> UIColor {
-        UIColor(named: named.rawValue)
+    static func getColor(_ named: ThemeColorName) -> UIColor {
+        UIColor(named: named.rawValue)!
     }
 
     static var backgroundLight = getColor(.backgroundLight)

@@ -32,8 +32,11 @@ extension UIColor {
     static var action = getColor(.action)
 }
 
-extension UIViewController {
+class DefaultViewController: UIViewController {
 
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .background
+    }
 
 }

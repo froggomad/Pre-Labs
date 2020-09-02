@@ -12,14 +12,31 @@ import UIKit
 extension UIView {
 
     ///autolayout init
-    convenience init(backgroundColor: UIColor = .red) {
+    convenience init(translatesAutoresizingMaskIntoConstraints: Bool = false, backgroundColor: UIColor = .action) {
         self.init()
-        translatesAutoresizingMaskIntoConstraints = false
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
         self.backgroundColor = backgroundColor
     }
 
-    /// Note: Left and right refer to left/right of screen or control
-    /// Note: Leading/Trailing are affected by device locale (ie ltr/rtl language)
+    /// Note: Left and right refer to left/right of screen or control.
+    /// Leading/Trailing are affected by device locale (ie ltr/rtl language)
+
+    /// Add Autolayout constraints to a view
+    /// - Parameters:
+    ///   - top: The anchor to constrain to this view's top anchor
+    ///   - left: The anchor to constrain to this view's left anchor
+    ///   - bottom: The anchor to constrain to this view's bottom anchor
+    ///   - right: The anchor to constrain to this view's right anchor
+    ///   - leading: The anchor to constrain to this view's leading anchor
+    ///   - trailing: The anchor to constrain to this view's trailing anchor
+    ///   - paddingTop: The amount of distance between this view's topAnchor and the constraint it's attached to
+    ///   - paddingLeft: The amount of distance between this view's leftAnchor and the constraint it's attached to
+    ///   - paddingBottom: The amount of distance between this view's bottomAnchor and the constraint it's attached to
+    ///   - paddingRight: The amount of distance between this view's rightAnchor and the constraint it's attached to
+    ///   - anchorLeading: The amount of distance between this view's leadingAnchor and the constraint it's attached to
+    ///   - anchorTrailing: The amount of distance between this view's trailingAnchor and the constraint it's attached to
+    ///   - width: The width of the view
+    ///   - height: The height of the view
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,
                 bottom: NSLayoutYAxisAnchor? = nil,
@@ -60,39 +77,44 @@ extension UIView {
         }
 
         if let width = width {
-            widthAnchor.constraint(equalToConstant: width).isActive = true
+            setWidth(width)
         }
 
         if let height = height {
-            heightAnchor.constraint(equalToConstant: height).isActive = true
+            setHeight(height)
         }
     }
 
-    func center(inView view: UIView, yConstant: CGFloat? = 0) {
+    /// Center a view in the designated view
+    /// - Parameters:
+    ///   - view: The view to be centered on
+    func center(in view: UIView) {
+        centerX(in: view)
+        centerY(in: view)
+    }
+
+    /// Center a view horizontally in the designated view
+    /// - Parameters:
+    ///   - view: The view to be centered on
+    func centerX(in view: UIView) {
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: yConstant!).isActive = true
     }
 
-    func centerX(inView view: UIView, topAnchor: NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat? = 0) {
-        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        if let topAnchor = topAnchor {
-            self.topAnchor.constraint(equalTo: topAnchor, constant: paddingTop!).isActive = true
-        }
+    func centerY(in view: UIView) {
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
-    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat? = nil, constant: CGFloat? = 0) {
+    private func setWidth(_ width: CGFloat) {
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
 
-        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant!).isActive = true
-
-        if let leftAnchor = leftAnchor, let padding = paddingLeft {
-            self.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        }
+    private func setHeight(_ height: CGFloat) {
+        heightAnchor.constraint(equalToConstant: height).isActive = true
     }
 
     func setDimensions(width: CGFloat, height: CGFloat) {
-        widthAnchor.constraint(equalToConstant: width).isActive = true
-        heightAnchor.constraint(equalToConstant: height).isActive = true
+        setWidth(width)
+        setHeight(height)
     }
 
     func addConstraintsToFillView(_ view: UIView) {

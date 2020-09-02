@@ -22,9 +22,7 @@ class ViewController: DefaultViewController {
         autoView.anchor(top: view.topAnchor,
                         left: view.leftAnchor,
                         paddingTop: 20,
-                        paddingLeft: 20,
-                        width: 20,
-                        height: 20)
+                        paddingLeft: 20)
     }
 
 }

@@ -11,14 +11,26 @@ import UIKit
 
 extension UIView {
 
-    ///autolayout init
+    enum ViewSize: CGFloat {
+        case small = 30
+        case medium = 60
+        case large = 90
+    }
+
+    /// Autolayout initializer
+    /// - Parameters:
+    ///   - translatesAutoresizingMaskIntoConstraints: default false
+    ///   - cornerRadius: default 8
+    ///   - backgroundColor: default .action (for visibility)
     convenience init(translatesAutoresizingMaskIntoConstraints: Bool = false,
                      cornerRadius: CGFloat = .cornerRadius,
-                     backgroundColor: UIColor = .action) {
+                     backgroundColor: UIColor = .action,
+                     size: ViewSize = .medium) {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = cornerRadius
+        setDimensions(width: size.rawValue, height: size.rawValue)
     }
 
     /// Note: Left and right refer to left/right of screen or control.

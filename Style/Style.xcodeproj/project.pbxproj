@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B922CC502500825F00439263 /* NetworkScaffold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B922CC4B2500824600439263 /* NetworkScaffold.framework */; };
+		B922CC51250082C400439263 /* URLRequest + JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC422500824600439263 /* URLRequest + JSON.swift */; };
+		B922CC52250082C400439263 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC432500824600439263 /* NetworkService.swift */; };
 		B9F385D424FF319200BEC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D324FF319200BEC7E9 /* AppDelegate.swift */; };
 		B9F385D624FF319200BEC7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D524FF319200BEC7E9 /* SceneDelegate.swift */; };
 		B9F385D824FF319200BEC7E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D724FF319200BEC7E9 /* ViewController.swift */; };
@@ -16,7 +19,22 @@
 		B9F385EE24FF359300BEC7E9 /* Autolayout Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385ED24FF359300BEC7E9 /* Autolayout Engine.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B922CC4A2500824600439263 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B922CC462500824600439263 /* NetworkScaffold.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B94E3B7B2500790600FB75F3;
+			remoteInfo = NetworkScaffold;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B922CC422500824600439263 /* URLRequest + JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest + JSON.swift"; sourceTree = "<group>"; };
+		B922CC432500824600439263 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B922CC442500824600439263 /* NetworkScaffold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkScaffold.h; sourceTree = "<group>"; };
+		B922CC452500824600439263 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B922CC462500824600439263 /* NetworkScaffold.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NetworkScaffold.xcodeproj; sourceTree = "<group>"; };
 		B9F385D024FF319200BEC7E9 /* Style.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Style.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F385D324FF319200BEC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F385D524FF319200BEC7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +51,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B922CC502500825F00439263 /* NetworkScaffold.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B922CC402500824600439263 /* NetworkScaffold */ = {
+			isa = PBXGroup;
+			children = (
+				B922CC412500824600439263 /* NetworkScaffold */,
+				B922CC462500824600439263 /* NetworkScaffold.xcodeproj */,
+			);
+			path = NetworkScaffold;
+			sourceTree = "<group>";
+		};
+		B922CC412500824600439263 /* NetworkScaffold */ = {
+			isa = PBXGroup;
+			children = (
+				B922CC422500824600439263 /* URLRequest + JSON.swift */,
+				B922CC432500824600439263 /* NetworkService.swift */,
+				B922CC442500824600439263 /* NetworkScaffold.h */,
+				B922CC452500824600439263 /* Info.plist */,
+			);
+			path = NetworkScaffold;
+			sourceTree = "<group>";
+		};
+		B922CC472500824600439263 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B922CC4B2500824600439263 /* NetworkScaffold.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B922CC4F2500825F00439263 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9F385C724FF319200BEC7E9 = {
 			isa = PBXGroup;
 			children = (
 				B9F385D224FF319200BEC7E9 /* Style */,
+				B922CC402500824600439263 /* NetworkScaffold */,
 				B9F385D124FF319200BEC7E9 /* Products */,
+				B922CC4F2500825F00439263 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,12 +204,28 @@
 			mainGroup = B9F385C724FF319200BEC7E9;
 			productRefGroup = B9F385D124FF319200BEC7E9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B922CC472500824600439263 /* Products */;
+					ProjectRef = B922CC462500824600439263 /* NetworkScaffold.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B9F385CF24FF319200BEC7E9 /* Style */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B922CC4B2500824600439263 /* NetworkScaffold.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NetworkScaffold.framework;
+			remoteRef = B922CC4A2500824600439263 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B9F385CE24FF319200BEC7E9 /* Resources */ = {
@@ -172,6 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B922CC51250082C400439263 /* URLRequest + JSON.swift in Sources */,
+				B922CC52250082C400439263 /* NetworkService.swift in Sources */,
 				B9F385D824FF319200BEC7E9 /* ViewController.swift in Sources */,
 				B9F385EC24FF329200BEC7E9 /* StyleSheet.swift in Sources */,
 				B9F385D424FF319200BEC7E9 /* AppDelegate.swift in Sources */,

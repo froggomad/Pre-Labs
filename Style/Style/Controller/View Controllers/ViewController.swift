@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NetworkScaffold
 
 class ViewController: DefaultViewController {
 
@@ -16,13 +17,16 @@ class ViewController: DefaultViewController {
     }
 
     private func setupRoundedAutolayoutView() {
-        let autoView = UIView(backgroundColor: .blue, size: .large)
-
+        let service = NetworkService()
+        let autoView = UIView(size: .large)
+        let request = service.createRequest(url: URL(string: "https://www.google.com"), method: .get)
+        if request != nil {
+            autoView.layer.backgroundColor = UIColor.action.cgColor
+        } else {
+            autoView.layer.backgroundColor = UIColor.red.cgColor
+        }
         view.addSubview(autoView)
-        autoView.anchor(top: view.topAnchor,
-                        left: view.leftAnchor,
-                        paddingTop: 20,
-                        paddingLeft: 20)
+        autoView.center(in: view)
     }
 
 }

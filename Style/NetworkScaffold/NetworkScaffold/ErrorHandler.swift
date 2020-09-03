@@ -33,15 +33,14 @@ class ErrorHandler {
         case timeout = 408
         case tooManyRequests = 429
         case headerFieldTooLarge = 431
-        case unknown = 9999
     }
 
     static var userNetworkErrors: [Int: UserError] {
         [
             NetworkError.unauthorized.rawValue: UserError(title: "Unauthorized", message: "Please login again"),
             NetworkError.forbidden.rawValue: UserError(title: "Forbidden", message: "Access to that resource is restricted"),
-            NetworkError.notFound.rawValue: UserError(title: "Not Found", message: "Sorry, we're having trouble finding that resource"),
-            NetworkError.unknown.rawValue: UserError(title: "Unkown error", message: "please try again")
+            NetworkError.timeout.rawValue: UserError(title: "Timed out", message: "Please check your connection or try again later."),
+            NetworkError.notFound.rawValue: UserError(title: "Not Found", message: "Sorry, we're having trouble finding that resource")
         ]
 
     }
@@ -51,7 +50,6 @@ class ErrorHandler {
             NetworkError.badRequest.rawValue: "The request was formatted incorrectly.",
             NetworkError.badMethod.rawValue: "Method not accepted",
             NetworkError.resourceNotAcceptable.rawValue: "Resource not acceptable",
-            NetworkError.timeout.rawValue: "Request timed out",
             NetworkError.tooManyRequests.rawValue: "Too many requests sent recently",
             NetworkError.headerFieldTooLarge.rawValue: "header too large"
         ]
@@ -90,7 +88,7 @@ extension UIViewController {
 
     func presentAuthError(error: ErrorHandler.UserAuthError) {
         guard let errorToDisplay = ErrorHandler.userAuthErrors[error] else {
-            print("couldn't retrieve value from ErrorHandler.userAuthError")
+            print("couldn't retrieve value from ErrorHandler.userAuthErrors Dictionary")
             return
         }
         presentAlert(title: errorToDisplay.title, message: errorToDisplay.message)
@@ -98,7 +96,12 @@ extension UIViewController {
 
     func presentNetworkError(error: Int) {
         guard let errorToDisplay = ErrorHandler.userNetworkErrors[error] else {
-            print("\(#function): \(String(describing: ErrorHandler.internalNetworkErrors[error]))")
+            if let error = ErrorHandler.internalNetworkErrors[error] {
+                print("\(#function): \(error)")
+            } else {
+                print("\(#function): Error \(error)")
+            }
+
             return
         }
         presentAlert(title: errorToDisplay.title, message: errorToDisplay.message)

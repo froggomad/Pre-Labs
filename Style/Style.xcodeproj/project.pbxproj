@@ -75,10 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				B922CC422500824600439263 /* URLRequest + JSON.swift */,
+				B922CC542500A86E00439263 /* ErrorHandler.swift */,
 				B922CC432500824600439263 /* NetworkService.swift */,
 				B922CC442500824600439263 /* NetworkScaffold.h */,
 				B922CC452500824600439263 /* Info.plist */,
-				B922CC542500A86E00439263 /* ErrorHandler.swift */,
 			);
 			path = NetworkScaffold;
 			sourceTree = "<group>";

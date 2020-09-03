@@ -9,19 +9,20 @@
 import Foundation
 
 /// Standard URL Handler that can also be used in Unit Tests with mock data
+public typealias URLHandler = (Data?, HTTPURLResponse?, Error?) -> Void
+
 public protocol NetworkLoader {
-    func loadData(using request: URLRequest, with completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void)
+    func loadData(using request: URLRequest, with completion: @escaping URLHandler)
 }
 
 // TODO: Improve error handling
 /// Provide default error and response handling for network tasks
 extension URLSession: NetworkLoader {
-    public func loadData(using request: URLRequest, with completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
+    public func loadData(using request: URLRequest, with completion: @escaping URLHandler) {
         self.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Networking error with \(String(describing: request.url?.absoluteString)) \n\(error)")
             }
-
             completion(data, response as? HTTPURLResponse, error)
         }.resume()
     }
@@ -119,7 +120,7 @@ public class NetworkService {
         }
     }
 
-    func loadData(using request: URLRequest, with completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func loadData(using request: URLRequest, with completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
         self.dataLoader.loadData(using: request, with: completion)
     }
 

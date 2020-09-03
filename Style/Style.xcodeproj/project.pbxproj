@@ -10,6 +10,8 @@
 		B922CC502500825F00439263 /* NetworkScaffold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B922CC4B2500824600439263 /* NetworkScaffold.framework */; };
 		B922CC51250082C400439263 /* URLRequest + JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC422500824600439263 /* URLRequest + JSON.swift */; };
 		B922CC52250082C400439263 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC432500824600439263 /* NetworkService.swift */; };
+		B922CC552500A86E00439263 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC542500A86E00439263 /* ErrorHandler.swift */; };
+		B922CC572500A8A700439263 /* UIViewController + presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B922CC562500A8A700439263 /* UIViewController + presentAlert.swift */; };
 		B9F385D424FF319200BEC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D324FF319200BEC7E9 /* AppDelegate.swift */; };
 		B9F385D624FF319200BEC7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D524FF319200BEC7E9 /* SceneDelegate.swift */; };
 		B9F385D824FF319200BEC7E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385D724FF319200BEC7E9 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 		B922CC442500824600439263 /* NetworkScaffold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkScaffold.h; sourceTree = "<group>"; };
 		B922CC452500824600439263 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B922CC462500824600439263 /* NetworkScaffold.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NetworkScaffold.xcodeproj; sourceTree = "<group>"; };
+		B922CC542500A86E00439263 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		B922CC562500A8A700439263 /* UIViewController + presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + presentAlert.swift"; sourceTree = "<group>"; };
 		B9F385D024FF319200BEC7E9 /* Style.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Style.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F385D324FF319200BEC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F385D524FF319200BEC7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				B922CC432500824600439263 /* NetworkService.swift */,
 				B922CC442500824600439263 /* NetworkScaffold.h */,
 				B922CC452500824600439263 /* Info.plist */,
+				B922CC542500A86E00439263 /* ErrorHandler.swift */,
 			);
 			path = NetworkScaffold;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B9F385D724FF319200BEC7E9 /* ViewController.swift */,
+				B922CC562500A8A700439263 /* UIViewController + presentAlert.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -249,7 +255,9 @@
 				B9F385D824FF319200BEC7E9 /* ViewController.swift in Sources */,
 				B9F385EC24FF329200BEC7E9 /* StyleSheet.swift in Sources */,
 				B9F385D424FF319200BEC7E9 /* AppDelegate.swift in Sources */,
+				B922CC552500A86E00439263 /* ErrorHandler.swift in Sources */,
 				B9F385D624FF319200BEC7E9 /* SceneDelegate.swift in Sources */,
+				B922CC572500A8A700439263 /* UIViewController + presentAlert.swift in Sources */,
 				B9F385EE24FF359300BEC7E9 /* Autolayout Engine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

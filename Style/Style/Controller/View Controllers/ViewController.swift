@@ -13,18 +13,32 @@ class ViewController: DefaultViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRoundedAutolayoutView()
+        setupAutolayoutView()
     }
 
-    private func setupRoundedAutolayoutView() {
+    private func setupAutolayoutView() {
         let service = NetworkService()
-        let autoView = UIView(size: .large)
+        let autoView = UIView(backgroundColor: .black, size: .large)
+
         let request = service.createRequest(url: URL(string: "https://www.google.com"), method: .get)
-        if request != nil {
-            autoView.layer.backgroundColor = UIColor.action.cgColor
-        } else {
-            autoView.layer.backgroundColor = UIColor.red.cgColor
+        service.loadData(using: request!) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let statusCode = response?.statusCode else {
+                    //probably an Apple error (such as transport security)
+                    NSLog("Bad response, can't display.")
+                    return
+                }
+                if statusCode != 200 {
+                    self.presentNetworkError(error: statusCode)
+                } else {
+                    UIView.animate(withDuration: 1) {
+                        autoView.layer.backgroundColor = UIColor.action.cgColor
+                        self.view.layer.backgroundColor = UIColor.black.cgColor
+                    }
+                }
+            }
         }
+
         view.addSubview(autoView)
         autoView.center(in: view)
     }
